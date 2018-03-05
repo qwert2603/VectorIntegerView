@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <declare-styleable name="VectorIntegerView" tools:ignore="ResourceName">
+        <attr name="viv_vector_integer" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="viv_DigitState">
+        <attr name="viv_state_zero" format="boolean" />
+        <attr name="viv_state_one" format="boolean" />
+        <attr name="viv_state_two" format="boolean" />
+        <attr name="viv_state_three" format="boolean" />
+        <attr name="viv_state_four" format="boolean" />
+        <attr name="viv_state_five" format="boolean" />
+        <attr name="viv_state_six" format="boolean" />
+        <attr name="viv_state_seven" format="boolean" />
+        <attr name="viv_state_eight" format="boolean" />
+        <attr name="viv_state_nine" format="boolean" />
+        <attr name="viv_state_nth" format="boolean" />
+        <attr name="viv_state_minus" format="boolean" />
+    </declare-styleable>
+</resources>

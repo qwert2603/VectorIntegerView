@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText">
+
+    <com.qwert2603.vector_integer_view.VectorIntegerView
+        android:id="@+id/vectorIntegerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#7000ff00"
+        app:viv_vector_integer="4452" />
+
+    <Button
+        android:id="@+id/plus_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:text="+" />
+
+    <Button
+        android:id="@+id/minus_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:text="-" />
+
+</FrameLayout>

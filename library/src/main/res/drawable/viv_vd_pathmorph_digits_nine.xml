@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="@dimen/viv_digit_size"
+    android:height="@dimen/viv_digit_size"
+    android:viewportHeight="1"
+    android:viewportWidth="1">
+
+    <group
+        android:translateX="@dimen/viv_digit_translateX"
+        android:translateY="@dimen/viv_digit_translateY">
+        <path
+            android:name="iconPath"
+            android:pathData="@string/viv_path_nine"
+            android:strokeColor="@color/viv_digit_color"
+            android:strokeWidth="@dimen/viv_digit_strokewidth"/>
+    </group>
+
+</vector>
