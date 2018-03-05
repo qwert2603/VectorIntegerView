@@ -1,6 +1,8 @@
 package com.qwert2603.vector_integer_view;
 
 import android.annotation.SuppressLint;
+import android.graphics.PorterDuff;
+import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
@@ -11,13 +13,23 @@ import android.widget.ImageView;
 
 class DigitAdapter extends RecyclerView.Adapter<DigitAdapter.DigitViewHolder> {
 
+    @ColorInt
+    private final int digitColor;
+
     private int mInteger;
+
+    /*package*/ DigitAdapter(int digitColor) {
+        this.digitColor = digitColor;
+    }
 
     @NonNull
     @SuppressLint("InflateParams")
     @Override
     public DigitViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new DigitViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.viv_item_digit, parent, false));
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.viv_item_digit, parent, false);
+        ImageView imageView = view.findViewById(R.id.img);
+        imageView.setColorFilter(digitColor, PorterDuff.Mode.SRC_ATOP);
+        return new DigitViewHolder(view);
     }
 
     @Override
@@ -57,7 +69,7 @@ class DigitAdapter extends RecyclerView.Adapter<DigitAdapter.DigitViewHolder> {
             public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
                 return getDigitAt(old, oldItemPosition) == getDigitAt(integer, newItemPosition);
             }
-        }, false).dispatchUpdatesTo(this);
+        }, true).dispatchUpdatesTo(this);
     }
 
     private int getDigitCount(int d) {
@@ -67,12 +79,8 @@ class DigitAdapter extends RecyclerView.Adapter<DigitAdapter.DigitViewHolder> {
     private int getDigitAt(int d, int pos) {
         String s = String.valueOf(d);
         char c = s.charAt(s.length() - 1 - pos);
-        if (Character.isDigit(c)) {
-            return Integer.parseInt("" + c);
-        }
-        if (c == '-') {
-            return VectorIntegerView.DIGIT_MINUS;
-        }
+        if (Character.isDigit(c)) return Integer.parseInt("" + c);
+        if (c == '-') return VectorIntegerView.DIGIT_MINUS;
         throw new IllegalArgumentException();
     }
 

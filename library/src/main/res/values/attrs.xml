@@ -3,6 +3,7 @@
 
     <declare-styleable name="VectorIntegerView" tools:ignore="ResourceName">
         <attr name="viv_vector_integer" format="integer" />
+        <attr name="viv_digit_color" format="color" />
     </declare-styleable>
 
     <declare-styleable name="viv_DigitState">

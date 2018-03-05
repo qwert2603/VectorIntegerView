@@ -6,5 +6,5 @@
     android:layout_height="wrap_content"
     android:layout_marginEnd="@dimen/viv_digit_density"
     android:layout_marginStart="@dimen/viv_digit_density"
-    tools:ignore="ContentDescription"
-    tools:src="@drawable/viv_asl_pathmorph_digits" />
+    android:src="@drawable/viv_asl_pathmorph_digits"
+    tools:ignore="ContentDescription" />

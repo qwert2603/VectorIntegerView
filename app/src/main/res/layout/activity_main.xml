@@ -10,7 +10,8 @@
         android:id="@+id/vectorIntegerView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#7000ff00"
+        android:layout_margin="16dp"
+        app:viv_digit_color="#ff8000"
         app:viv_vector_integer="14" />
 
     <Button

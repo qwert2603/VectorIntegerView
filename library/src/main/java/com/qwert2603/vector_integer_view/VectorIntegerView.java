@@ -2,6 +2,7 @@ package com.qwert2603.vector_integer_view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,7 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 
-/** Integer drawables are taken from https://github.com/alexjlockwood/adp-delightful-details */
+/**
+ * Integer drawables are taken from https://github.com/alexjlockwood/adp-delightful-details
+ */
 public class VectorIntegerView extends FrameLayout {
 
     private static final String DIGIT_KEY = BuildConfig.APPLICATION_ID + ".DIGIT_KEY";
@@ -20,7 +23,7 @@ public class VectorIntegerView extends FrameLayout {
     /*package*/ static final int DIGIT_NTH = 10;
     /*package*/ static final int DIGIT_MINUS = 11;
 
-    private final DigitAdapter mDigitAdapter = new DigitAdapter();
+    private final DigitAdapter mDigitAdapter;
 
     public VectorIntegerView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -29,8 +32,10 @@ public class VectorIntegerView extends FrameLayout {
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.VectorIntegerView);
         int digit = typedArray.getInteger(R.styleable.VectorIntegerView_viv_vector_integer, 0);
+        int digitColor = typedArray.getColor(R.styleable.VectorIntegerView_viv_digit_color, Color.BLACK);
         typedArray.recycle();
 
+        mDigitAdapter = new DigitAdapter(digitColor);
         recyclerView.setAdapter(mDigitAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true));
         recyclerView.setItemAnimator(new DigitItemAnimator());
