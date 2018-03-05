@@ -21,6 +21,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(path: ':library')
+//    implementation 'com.github.qwert2603:VectorIntegerView:0.1'
 
-    implementation 'com.android.support:appcompat-v7:27.1.0'
+    ext.support_version = '27.1.0'
+    implementation "com.android.support:appcompat-v7:$support_version"
+    implementation "com.android.support:design:$support_version"
 }

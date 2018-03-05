@@ -76,22 +76,22 @@ class DigitAdapter extends RecyclerView.Adapter<DigitAdapter.DigitViewHolder> {
         throw new IllegalArgumentException();
     }
 
-    class DigitViewHolder extends RecyclerView.ViewHolder {
-        final int[] attrs = {
-                R.attr.viv_state_zero,
-                R.attr.viv_state_one,
-                R.attr.viv_state_two,
-                R.attr.viv_state_three,
-                R.attr.viv_state_four,
-                R.attr.viv_state_five,
-                R.attr.viv_state_six,
-                R.attr.viv_state_seven,
-                R.attr.viv_state_eight,
-                R.attr.viv_state_nine,
-                R.attr.viv_state_nth,
-                R.attr.viv_state_minus,
-        };
+    private static final int[] ATTRS = {
+            R.attr.viv_state_zero,
+            R.attr.viv_state_one,
+            R.attr.viv_state_two,
+            R.attr.viv_state_three,
+            R.attr.viv_state_four,
+            R.attr.viv_state_five,
+            R.attr.viv_state_six,
+            R.attr.viv_state_seven,
+            R.attr.viv_state_eight,
+            R.attr.viv_state_nine,
+            R.attr.viv_state_nth,
+            R.attr.viv_state_minus,
+    };
 
+    class DigitViewHolder extends RecyclerView.ViewHolder {
         ImageView mImageView;
         int d;
 
@@ -103,13 +103,13 @@ class DigitAdapter extends RecyclerView.Adapter<DigitAdapter.DigitViewHolder> {
         void setDigit(int digit) {
             d = digit;
 
-            int[] state = new int[attrs.length];
+            int[] state = new int[ATTRS.length];
 
-            for (int i = 0; i < attrs.length; i++) {
+            for (int i = 0; i < ATTRS.length; i++) {
                 if (i == digit) {
-                    state[i] = attrs[i];
+                    state[i] = ATTRS[i];
                 } else {
-                    state[i] = -attrs[i];
+                    state[i] = -ATTRS[i];
                 }
             }
 
