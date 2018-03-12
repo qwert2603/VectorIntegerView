@@ -20,8 +20,8 @@ public class VectorIntegerView extends FrameLayout {
     private static final String DIGIT_KEY = BuildConfig.APPLICATION_ID + ".DIGIT_KEY";
     private static final String SUPER_STATE_KEY = BuildConfig.APPLICATION_ID + ".SUPER_STATE_KEY";
 
-    /*package*/ static final int DIGIT_NTH = 10;
-    /*package*/ static final int DIGIT_MINUS = 11;
+    static final int DIGIT_NTH = 10;
+    static final int DIGIT_MINUS = 11;
 
     private final DigitAdapter mDigitAdapter;
 
@@ -37,7 +37,7 @@ public class VectorIntegerView extends FrameLayout {
 
         mDigitAdapter = new DigitAdapter(digitColor);
         recyclerView.setAdapter(mDigitAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true));
+        recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setItemAnimator(new DigitItemAnimator());
         setInteger(digit, false);
     }

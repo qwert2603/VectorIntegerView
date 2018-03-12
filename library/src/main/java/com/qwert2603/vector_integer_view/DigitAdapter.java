@@ -18,7 +18,7 @@ class DigitAdapter extends RecyclerView.Adapter<DigitAdapter.DigitViewHolder> {
 
     private int mInteger;
 
-    /*package*/ DigitAdapter(int digitColor) {
+    DigitAdapter(int digitColor) {
         this.digitColor = digitColor;
     }
 
@@ -62,7 +62,13 @@ class DigitAdapter extends RecyclerView.Adapter<DigitAdapter.DigitViewHolder> {
 
             @Override
             public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-                return oldItemPosition == newItemPosition;
+                if (oldItemPosition == 0 && getDigitAt(old, 0) == VectorIntegerView.DIGIT_MINUS) {
+                    return getDigitAt(integer, newItemPosition) == VectorIntegerView.DIGIT_MINUS;
+                }
+                if (newItemPosition == 0 && getDigitAt(integer, 0) == VectorIntegerView.DIGIT_MINUS) {
+                    return getDigitAt(old, oldItemPosition) == VectorIntegerView.DIGIT_MINUS;
+                }
+                return getOldListSize() - oldItemPosition == getNewListSize() - newItemPosition;
             }
 
             @Override
@@ -72,14 +78,14 @@ class DigitAdapter extends RecyclerView.Adapter<DigitAdapter.DigitViewHolder> {
         }, true).dispatchUpdatesTo(this);
     }
 
-    private int getDigitCount(int d) {
+    private static int getDigitCount(int d) {
         return String.valueOf(d).length();
     }
 
-    private int getDigitAt(int d, int pos) {
+    private static int getDigitAt(int d, int pos) {
         String s = String.valueOf(d);
-        char c = s.charAt(s.length() - 1 - pos);
-        if (Character.isDigit(c)) return Integer.parseInt("" + c);
+        char c = s.charAt(pos);
+        if (Character.isDigit(c)) return Integer.parseInt(String.valueOf(c));
         if (c == '-') return VectorIntegerView.DIGIT_MINUS;
         throw new IllegalArgumentException();
     }
@@ -99,7 +105,7 @@ class DigitAdapter extends RecyclerView.Adapter<DigitAdapter.DigitViewHolder> {
             R.attr.viv_state_minus,
     };
 
-    class DigitViewHolder extends RecyclerView.ViewHolder {
+    static class DigitViewHolder extends RecyclerView.ViewHolder {
         ImageView mImageView;
         int d;
 

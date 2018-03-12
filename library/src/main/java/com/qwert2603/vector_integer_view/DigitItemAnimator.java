@@ -6,8 +6,8 @@ import android.support.v7.widget.RecyclerView;
 import java.util.List;
 
 class DigitItemAnimator extends DefaultItemAnimator {
-    private class VHI extends RecyclerView.ItemAnimator.ItemHolderInfo {
-        int d;
+    private static class VHI extends RecyclerView.ItemAnimator.ItemHolderInfo {
+        final int d;
 
         VHI(int d) {
             this.d = d;

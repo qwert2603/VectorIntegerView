@@ -8,12 +8,21 @@
 
     <com.qwert2603.vector_integer_view.VectorIntegerView
         android:id="@+id/vectorIntegerView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
         android:layout_margin="16dp"
         app:viv_digit_color="#ff8000"
         app:viv_vector_integer="14" />
+
+    <EditText
+        android:id="@+id/number_EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:inputType="numberSigned"
+        android:maxLength="9"
+        tools:ignore="LabelFor" />
 
     <Button
         android:id="@+id/plus_Button"
@@ -28,5 +37,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:text="-" />
+
+    <Button
+        android:id="@+id/setNumber_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:text="ok" />
 
 </FrameLayout>

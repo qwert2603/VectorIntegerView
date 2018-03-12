@@ -3,6 +3,7 @@ package com.qwert2603.vector_integer_view_example;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 import com.qwert2603.vector_integer_view.VectorIntegerView;
 
@@ -27,5 +28,17 @@ public class MainActivity extends AppCompatActivity {
                 vectorIntegerView.setInteger(vectorIntegerView.getInteger() - 1, true);
             }
         });
+        findViewById(R.id.setNumber_Button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int number = 0;
+                try {
+                    number = Integer.parseInt(((EditText) findViewById(R.id.number_EditText)).getText().toString());
+                } catch (NumberFormatException ignored) {
+                }
+                vectorIntegerView.setInteger(number, true);
+            }
+        });
+
     }
 }
