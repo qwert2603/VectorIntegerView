@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="viv_digit_size">24dp</dimen>
-    <dimen name="viv_digit_density">-3dp</dimen>
+    <dimen name="viv_digit_margin_horizontal">-3dp</dimen>
     <item name="viv_digit_translateX" format="float" type="dimen">-0.06</item>
     <item name="viv_digit_translateY" format="float" type="dimen">-0.06</item>
     <item name="viv_digit_strokewidth" format="float" type="dimen">0.08</item>

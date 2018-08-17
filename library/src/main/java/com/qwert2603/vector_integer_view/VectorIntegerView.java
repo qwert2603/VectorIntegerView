@@ -5,7 +5,6 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -37,8 +36,7 @@ public class VectorIntegerView extends FrameLayout {
 
         mDigitAdapter = new DigitAdapter(digitColor);
         recyclerView.setAdapter(mDigitAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
-        recyclerView.setItemAnimator(new DigitItemAnimator());
+        recyclerView.setItemAnimator(new DigitItemAnimator(getResources()));
         setInteger(digit, false);
     }
 

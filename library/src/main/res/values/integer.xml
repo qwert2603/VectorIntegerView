@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--todo: use it in animation res-->
+    <integer name="viv_animation_duration">1400</integer>
+</resources>

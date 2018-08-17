@@ -22,6 +22,7 @@
         android:layout_margin="16dp"
         android:inputType="numberSigned"
         android:maxLength="9"
+        android:text="1918"
         tools:ignore="LabelFor" />
 
     <Button

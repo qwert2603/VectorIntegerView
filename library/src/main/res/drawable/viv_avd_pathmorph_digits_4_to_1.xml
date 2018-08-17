@@ -7,6 +7,7 @@
   <target android:name="iconPath">
     <aapt:attr name="android:animation">
       <objectAnimator
+        android:duration="@integer/viv_animation_duration"
         android:propertyName="pathData"
         android:valueFrom="@string/viv_path_four"
         android:valueTo="@string/viv_path_one"

@@ -1,0 +1,48 @@
+import java.io.File
+import java.io.FileWriter
+
+fun main(args: Array<String>) {
+    val names = arrayOf(
+            "zero", "one", "two", "three",
+            "four", "five", "six", "seven",
+            "eight", "nine", "nth", "minus"
+    )
+
+    fun getLetter(i: Int) = when (i) {
+        in 0..9 -> i.toString()
+        10 -> "n"
+        11 -> "m"
+        else -> null!!
+    }
+
+    val dirName = "viv_out"
+    File(dirName).mkdir()
+    for (from in 0..11) {
+        for (to in 0..11) {
+            if (from == to) continue
+            FileWriter(File(dirName, "viv_avd_pathmorph_digits_${getLetter(from)}_to_${getLetter(to)}.xml")).use {
+                it.write("""
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:aapt="http://schemas.android.com/aapt"
+  android:drawable="@drawable/viv_vd_pathmorph_digits_zero">
+
+  <target android:name="iconPath">
+    <aapt:attr name="android:animation">
+      <objectAnimator
+        android:duration="@integer/viv_animation_duration"
+        android:propertyName="pathData"
+        android:valueFrom="@string/viv_path_${names[from]}"
+        android:valueTo="@string/viv_path_${names[to]}"
+        android:valueType="pathType"/>
+    </aapt:attr>
+  </target>
+
+</animated-vector>
+
+""".trimIndent())
+            }
+        }
+    }
+}

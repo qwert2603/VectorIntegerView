@@ -1,17 +1,46 @@
 package com.qwert2603.vector_integer_view;
 
+import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
+
 import java.util.List;
 
 class DigitItemAnimator extends DefaultItemAnimator {
+
+    private final int animationDuration;
+
     private static class VHI extends RecyclerView.ItemAnimator.ItemHolderInfo {
         final int d;
 
         VHI(int d) {
             this.d = d;
         }
+    }
+
+    DigitItemAnimator(@NonNull Resources resources) {
+        animationDuration = resources.getInteger(R.integer.viv_animation_duration);
+    }
+
+    @Override
+    public long getMoveDuration() {
+        return animationDuration;
+    }
+
+    @Override
+    public long getAddDuration() {
+        return animationDuration;
+    }
+
+    @Override
+    public long getRemoveDuration() {
+        return animationDuration;
+    }
+
+    @Override
+    public long getChangeDuration() {
+        return animationDuration;
     }
 
     @Override
@@ -37,15 +66,16 @@ class DigitItemAnimator extends DefaultItemAnimator {
                                  @NonNull RecyclerView.ItemAnimator.ItemHolderInfo preInfo,
                                  @NonNull RecyclerView.ItemAnimator.ItemHolderInfo postInfo) {
         if (preInfo instanceof VHI) {
-            int a = ((DigitAdapter.DigitViewHolder) newHolder).d;
-            ((DigitAdapter.DigitViewHolder) newHolder).setDigit(((VHI) preInfo).d);
-            ((DigitAdapter.DigitViewHolder) newHolder).setDigit(a);
+            final DigitAdapter.DigitViewHolder digitViewHolder = (DigitAdapter.DigitViewHolder) newHolder;
+            int a = digitViewHolder.d;
+            digitViewHolder.setDigit(((VHI) preInfo).d);
+            digitViewHolder.setDigit(a);
             newHolder.itemView.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     dispatchAnimationFinished(newHolder);
                 }
-            }, 400);
+            }, animationDuration);
             return false;
         }
         return super.animateChange(oldHolder, newHolder, preInfo, postInfo);
@@ -53,15 +83,16 @@ class DigitItemAnimator extends DefaultItemAnimator {
 
     @Override
     public boolean animateAdd(final RecyclerView.ViewHolder holder) {
-        int a = ((DigitAdapter.DigitViewHolder) holder).d;
-        ((DigitAdapter.DigitViewHolder) holder).setDigit(VectorIntegerView.DIGIT_NTH);
-        ((DigitAdapter.DigitViewHolder) holder).setDigit(a);
+        final DigitAdapter.DigitViewHolder digitViewHolder = (DigitAdapter.DigitViewHolder) holder;
+        int a = digitViewHolder.d;
+        digitViewHolder.setDigit(VectorIntegerView.DIGIT_NTH);
+        digitViewHolder.setDigit(a);
         holder.itemView.postDelayed(new Runnable() {
             @Override
             public void run() {
                 dispatchAddFinished(holder);
             }
-        }, 400);
+        }, animationDuration);
         return false;
     }
 
@@ -73,7 +104,7 @@ class DigitItemAnimator extends DefaultItemAnimator {
             public void run() {
                 dispatchRemoveFinished(holder);
             }
-        }, 400);
+        }, animationDuration);
         return false;
     }
 }
