@@ -52,11 +52,25 @@
         android:layout_gravity="bottom|end"
         android:text="-" />
 
-    <Button
-        android:id="@+id/setNumber_Button"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
-        android:text="ok" />
+        android:orientation="vertical">
+
+        <CheckBox
+            android:id="@+id/animate_CheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="animate" />
+
+        <Button
+            android:id="@+id/setNumber_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ok" />
+
+    </LinearLayout>
 
 </FrameLayout>
