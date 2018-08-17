@@ -5,11 +5,14 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
+
+import java.math.BigInteger;
 
 /**
  * Integer drawables are taken from https://github.com/alexjlockwood/adp-delightful-details
@@ -40,14 +43,19 @@ public class VectorIntegerView extends FrameLayout {
         setInteger(digit, false);
     }
 
-    public void setInteger(int digit, boolean animate) {
+    public void setInteger(long digit, boolean animate) {
+        setInteger(BigInteger.valueOf(digit), animate);
+    }
+
+    public void setInteger(@NonNull BigInteger digit, boolean animate) {
         mDigitAdapter.setInteger(digit);
         if (!animate) {
             mDigitAdapter.notifyDataSetChanged();
         }
     }
 
-    public int getInteger() {
+    @NonNull
+    public BigInteger getInteger() {
         return mDigitAdapter.getInteger();
     }
 
@@ -55,7 +63,7 @@ public class VectorIntegerView extends FrameLayout {
     protected Parcelable onSaveInstanceState() {
         Bundle bundle = new Bundle();
         bundle.putParcelable(SUPER_STATE_KEY, super.onSaveInstanceState());
-        bundle.putInt(DIGIT_KEY, getInteger());
+        bundle.putSerializable(DIGIT_KEY, getInteger());
         return bundle;
     }
 
@@ -63,7 +71,8 @@ public class VectorIntegerView extends FrameLayout {
     protected void onRestoreInstanceState(Parcelable state) {
         if (state instanceof Bundle) {
             Bundle bundle = (Bundle) state;
-            setInteger(bundle.getInt(DIGIT_KEY), false);
+            final BigInteger bigInteger = (BigInteger) bundle.getSerializable(DIGIT_KEY);
+            setInteger(bigInteger != null ? bigInteger : BigInteger.ZERO, false);
             state = bundle.getParcelable(SUPER_STATE_KEY);
         }
         super.onRestoreInstanceState(state);

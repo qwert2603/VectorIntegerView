@@ -11,12 +11,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import java.math.BigInteger;
+
 class DigitAdapter extends RecyclerView.Adapter<DigitAdapter.DigitViewHolder> {
 
     @ColorInt
     private final int digitColor;
 
-    private int mInteger;
+    @NonNull
+    private BigInteger mInteger = BigInteger.ZERO;
 
     DigitAdapter(int digitColor) {
         this.digitColor = digitColor;
@@ -42,12 +45,13 @@ class DigitAdapter extends RecyclerView.Adapter<DigitAdapter.DigitViewHolder> {
         return getDigitCount(mInteger);
     }
 
-    int getInteger() {
+    @NonNull
+    BigInteger getInteger() {
         return mInteger;
     }
 
-    void setInteger(final int integer) {
-        final int old = mInteger;
+    void setInteger(@NonNull final BigInteger integer) {
+        final BigInteger old = mInteger;
         mInteger = integer;
         DiffUtil.calculateDiff(new DiffUtil.Callback() {
             @Override
@@ -78,11 +82,11 @@ class DigitAdapter extends RecyclerView.Adapter<DigitAdapter.DigitViewHolder> {
         }, true).dispatchUpdatesTo(this);
     }
 
-    private static int getDigitCount(int d) {
+    private static int getDigitCount(@NonNull BigInteger d) {
         return String.valueOf(d).length();
     }
 
-    private static int getDigitAt(int d, int pos) {
+    private static int getDigitAt(@NonNull BigInteger d, int pos) {
         String s = String.valueOf(d);
         char c = s.charAt(pos);
         if (Character.isDigit(c)) return Integer.parseInt(String.valueOf(c));
