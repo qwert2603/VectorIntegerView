@@ -40,7 +40,7 @@ Paths for vector drawables drawables are taken [here](https://github.com/alexjlo
 ```
 
 ### Java / Kotlin
-Digit can be set also via code as `BitInteger`:
+Digit can be set also via code as `BigInteger`:
 ```
 final VectorIntegerView vectorIntegerView = findViewById(R.id.vectorIntegerView);
 vectorIntegerView.setInteger(
