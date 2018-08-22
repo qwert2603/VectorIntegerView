@@ -28,8 +28,19 @@ Paths for vector drawables drawables are taken [here](https://github.com/alexjlo
 * ***@dimen/viv_digit_margin_horizontal*** applied to all digit-views (-3dp by default). This is needed to make horizontal spaces between digits smaller, because avd-digits are square.
 
 ## In code
+### XML
+```
+<com.qwert2603.vector_integer_view.VectorIntegerView
+    android:id="@+id/vectorIntegerView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:viv_digit_color="#ff8000"
+    app:viv_vector_integer="14" />
+```
 
-Digit can be set also via code:
+### Java / Kotlin
+Digit (`BitInteger`) can be set also via code:
 ```
 final VectorIntegerView vectorIntegerView = findViewById(R.id.vectorIntegerView);
 vectorIntegerView.setInteger(
