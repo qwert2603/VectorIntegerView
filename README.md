@@ -6,9 +6,9 @@
 
 Paths for vector drawables drawables are taken [here](https://github.com/alexjlockwood/adp-delightful-details).
 
-## [Showcase video](https://www.youtube.com/watch?v=fn8yI9tRgjY)
+## [Showcase video](https://www.youtube.com/watch?v=tTQlPH3ROMw)
 
-![art](https://github.com/qwert2603/VectorIntegerView/blob/master/art/device-2018-08-22-120319%20(3).gif)
+![art](https://github.com/qwert2603/VectorIntegerView/blob/master/art/device-2018-08-22-124411.gif)
 
 ## Customizing
 
