@@ -8,8 +8,7 @@ Paths for vector drawables drawables are taken [here](https://github.com/alexjlo
 
 ## [showcase video](https://www.youtube.com/watch?v=fn8yI9tRgjY)
 
-![art](https://github.com/qwert2603/VectorIntegerView/blob/master/art/device-2018-08-22-111118. png)
-![art](https://github.com/qwert2603/VectorIntegerView/blob/master/art/device-2018-08-22-111149. png)
+![art](https://github.com/qwert2603/VectorIntegerView/blob/master/art/device-2018-08-22-120319.gif)
 
 ## Customizing
 
@@ -23,6 +22,10 @@ Paths for vector drawables drawables are taken [here](https://github.com/alexjlo
 
 * ***@dimen/viv_digit_size*** defines size of one digit.
 * ***@integer/viv_animation_duration*** defines duration of animation.
+* ***@dimen/viv_digit_translateX*** applied to all avd-digits, to center them horizontally.
+* ***@dimen/viv_digit_translateY*** applied to all avd-digits, to center them vertically.
+* ***@dimen/viv_digit_strokewidth*** applied to all avd-digits.
+* ***@dimen/viv_digit_margin_horizontal*** applied to all digit-views, -3dp by default. This is needed to make horizontal spaces between digits smaller, because avd-digits are square.
 
 ## In code
 
