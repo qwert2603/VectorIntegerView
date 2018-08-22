@@ -6,7 +6,7 @@
 
 Paths for vector drawables drawables are taken [here](https://github.com/alexjlockwood/adp-delightful-details).
 
-## [showcase video](https://www.youtube.com/watch?v=fn8yI9tRgjY)
+## [Showcase video](https://www.youtube.com/watch?v=fn8yI9tRgjY)
 
 ![art](https://github.com/qwert2603/VectorIntegerView/blob/master/art/device-2018-08-22-120319%20(3).gif)
 
@@ -41,6 +41,7 @@ Also there is overloaded function that allows set integer as ```long```:
 ```
 vectorIntegerView.setInteger(1918, false);
 ```
+For example see [demo-app](https://github.com/qwert2603/VectorIntegerView/tree/master/app).
 
 ## Under the hood
 
