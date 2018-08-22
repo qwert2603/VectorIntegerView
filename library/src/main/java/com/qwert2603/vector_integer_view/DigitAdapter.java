@@ -37,12 +37,12 @@ class DigitAdapter extends RecyclerView.Adapter<DigitAdapter.DigitViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull DigitViewHolder holder, int position) {
-        holder.setDigit(getDigitAt(mInteger, position));
+        holder.setDigit(Utils.getDigitAt(mInteger, position));
     }
 
     @Override
     public int getItemCount() {
-        return getDigitCount(mInteger);
+        return Utils.getDigitCount(mInteger);
     }
 
     @NonNull
@@ -56,42 +56,30 @@ class DigitAdapter extends RecyclerView.Adapter<DigitAdapter.DigitViewHolder> {
         DiffUtil.calculateDiff(new DiffUtil.Callback() {
             @Override
             public int getOldListSize() {
-                return getDigitCount(old);
+                return Utils.getDigitCount(old);
             }
 
             @Override
             public int getNewListSize() {
-                return getDigitCount(integer);
+                return Utils.getDigitCount(integer);
             }
 
             @Override
             public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-                if (oldItemPosition == 0 && getDigitAt(old, 0) == VectorIntegerView.DIGIT_MINUS) {
-                    return getDigitAt(integer, newItemPosition) == VectorIntegerView.DIGIT_MINUS;
+                if (oldItemPosition == 0 && Utils.getDigitAt(old, 0) == VectorIntegerView.DIGIT_MINUS) {
+                    return Utils.getDigitAt(integer, newItemPosition) == VectorIntegerView.DIGIT_MINUS;
                 }
-                if (newItemPosition == 0 && getDigitAt(integer, 0) == VectorIntegerView.DIGIT_MINUS) {
-                    return getDigitAt(old, oldItemPosition) == VectorIntegerView.DIGIT_MINUS;
+                if (newItemPosition == 0 && Utils.getDigitAt(integer, 0) == VectorIntegerView.DIGIT_MINUS) {
+                    return Utils.getDigitAt(old, oldItemPosition) == VectorIntegerView.DIGIT_MINUS;
                 }
                 return getOldListSize() - oldItemPosition == getNewListSize() - newItemPosition;
             }
 
             @Override
             public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
-                return getDigitAt(old, oldItemPosition) == getDigitAt(integer, newItemPosition);
+                return Utils.getDigitAt(old, oldItemPosition) == Utils.getDigitAt(integer, newItemPosition);
             }
         }, true).dispatchUpdatesTo(this);
-    }
-
-    private static int getDigitCount(@NonNull BigInteger d) {
-        return String.valueOf(d).length();
-    }
-
-    private static int getDigitAt(@NonNull BigInteger d, int pos) {
-        String s = String.valueOf(d);
-        char c = s.charAt(pos);
-        if (Character.isDigit(c)) return Integer.parseInt(String.valueOf(c));
-        if (c == '-') return VectorIntegerView.DIGIT_MINUS;
-        throw new IllegalArgumentException();
     }
 
     private static final int[] ATTRS = {

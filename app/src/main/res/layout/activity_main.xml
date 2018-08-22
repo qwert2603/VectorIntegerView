@@ -6,13 +6,28 @@
     android:layout_height="match_parent"
     tools:ignore="HardcodedText">
 
-    <com.qwert2603.vector_integer_view.VectorIntegerView
-        android:id="@+id/vectorIntegerView"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:viv_digit_color="#ff8000"
-        app:viv_vector_integer="14" />
+        android:layout_height="wrap_content">
+
+        <com.qwert2603.vector_integer_view.VectorIntegerView
+            android:id="@+id/vectorIntegerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:viv_digit_color="#ff8000"
+            app:viv_vector_integer="14" />
+
+        <com.qwert2603.vector_integer_view.VectorIntegerView
+            android:id="@+id/vectorIntegerView_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:viv_digit_color="#0080ff"
+            app:viv_vector_integer="-35" />
+
+    </LinearLayout>
 
     <EditText
         android:id="@+id/number_EditText"

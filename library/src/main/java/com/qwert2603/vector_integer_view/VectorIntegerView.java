@@ -2,10 +2,10 @@ package com.qwert2603.vector_integer_view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -34,7 +34,8 @@ public class VectorIntegerView extends FrameLayout {
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.VectorIntegerView);
         int digit = typedArray.getInteger(R.styleable.VectorIntegerView_viv_vector_integer, 0);
-        int digitColor = typedArray.getColor(R.styleable.VectorIntegerView_viv_digit_color, Color.BLACK);
+        int defaultDigitColor = ResourcesCompat.getColor(getResources(), R.color.viv_digit_color, null);
+        int digitColor = typedArray.getColor(R.styleable.VectorIntegerView_viv_digit_color, defaultDigitColor);
         typedArray.recycle();
 
         mDigitAdapter = new DigitAdapter(digitColor);

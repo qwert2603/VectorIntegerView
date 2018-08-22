@@ -3,7 +3,7 @@
     package="com.qwert2603.vector_integer_view_example">
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@drawable/viv_vd_pathmorph_digits_four"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
