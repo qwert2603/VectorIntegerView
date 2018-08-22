@@ -1,6 +1,7 @@
 package com.qwert2603.vector_integer_view;
 
 import android.content.res.Resources;
+import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
@@ -12,9 +13,9 @@ class DigitItemAnimator extends DefaultItemAnimator {
     private final int animationDuration;
 
     private static class VHI extends RecyclerView.ItemAnimator.ItemHolderInfo {
-        final int d;
+        @IntRange(from = 0, to = VectorIntegerView.MAX_DIGIT) final int d;
 
-        VHI(int d) {
+        VHI(@IntRange(from = 0, to = VectorIntegerView.MAX_DIGIT) int d) {
             this.d = d;
         }
     }

@@ -3,6 +3,7 @@ package com.qwert2603.vector_integer_view;
 import android.annotation.SuppressLint;
 import android.graphics.PorterDuff;
 import android.support.annotation.ColorInt;
+import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
@@ -99,14 +100,14 @@ class DigitAdapter extends RecyclerView.Adapter<DigitAdapter.DigitViewHolder> {
 
     static class DigitViewHolder extends RecyclerView.ViewHolder {
         ImageView mImageView;
-        int d;
+        @IntRange(from = 0, to = VectorIntegerView.MAX_DIGIT) int d;
 
         DigitViewHolder(View itemView) {
             super(itemView);
             mImageView = itemView.findViewById(R.id.viv_img);
         }
 
-        void setDigit(int digit) {
+        void setDigit(@IntRange(from = 0, to = VectorIntegerView.MAX_DIGIT) int digit) {
             d = digit;
 
             int[] state = new int[ATTRS.length];

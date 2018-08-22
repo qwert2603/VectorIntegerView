@@ -24,6 +24,7 @@ public class VectorIntegerView extends FrameLayout {
 
     static final int DIGIT_NTH = 10;
     static final int DIGIT_MINUS = 11;
+    static final int MAX_DIGIT = DIGIT_MINUS;
 
     private final DigitAdapter mDigitAdapter;
 

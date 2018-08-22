@@ -1,5 +1,6 @@
 package com.qwert2603.vector_integer_view;
 
+import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 
 import java.math.BigInteger;
@@ -9,6 +10,7 @@ class Utils {
         return String.valueOf(d).length();
     }
 
+    @IntRange(from = 0, to = VectorIntegerView.MAX_DIGIT)
     static int getDigitAt(@NonNull BigInteger d, int pos) {
         String s = String.valueOf(d);
         char c = s.charAt(pos);
