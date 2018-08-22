@@ -19,7 +19,7 @@ Paths for vector drawables drawables are taken [here](https://github.com/alexjlo
 * ***viv_digit_color*** color of integer.
 
 ### Other properties may be configured by overriding resourses from library:
-#### (that will be applied to all `VectorIntegerView` in app, for example see [demo-app](https://github.com/qwert2603/VectorIntegerView/tree/master/app))
+#### (those will be applied to all `VectorIntegerView` in app, for example see [demo-app](https://github.com/qwert2603/VectorIntegerView/tree/master/app))
 
 * ***@dimen/viv_digit_size*** defines size of one digit.
 * ***@integer/viv_animation_duration*** defines duration of animation.
@@ -41,7 +41,7 @@ vectorIntegerView.setInteger(1918, false);
 
 ## Under the hood
 
-`VectorIntegerView` is implemented by `RecyclerView` and each digit is `ImageView` with `<animated-selector>` drawable.
+[`VectorIntegerView`](https://github.com/qwert2603/VectorIntegerView/blob/master/library/src/main/java/com/qwert2603/vector_integer_view/VectorIntegerView.java) is implemented by `RecyclerView` and each digit is `ImageView` with `<animated-selector>` drawable.
 
 Animation are controlled by custom `RecyclerView`'s item animator: [`DigitItemAnimator`](https://github.com/qwert2603/VectorIntegerView/blob/master/library/src/main/java/com/qwert2603/vector_integer_view/DigitItemAnimator.java).
 
