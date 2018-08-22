@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="viv_digit_color">@android:color/black</color>
+    <color name="viv_digit_color_default">@android:color/black</color>
 </resources>

@@ -34,7 +34,7 @@ public class VectorIntegerView extends FrameLayout {
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.VectorIntegerView);
         int digit = typedArray.getInteger(R.styleable.VectorIntegerView_viv_vector_integer, 0);
-        int defaultDigitColor = ResourcesCompat.getColor(getResources(), R.color.viv_digit_color, null);
+        int defaultDigitColor = ResourcesCompat.getColor(getResources(), R.color.viv_digit_color_default, null);
         int digitColor = typedArray.getColor(R.styleable.VectorIntegerView_viv_digit_color, defaultDigitColor);
         typedArray.recycle();
 

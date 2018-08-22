@@ -12,7 +12,7 @@
         <path
             android:name="iconPath"
             android:pathData="@string/viv_path_five"
-            android:strokeColor="@color/viv_digit_color"
+            android:strokeColor="@color/viv_digit_color_default"
             android:strokeWidth="@dimen/viv_digit_strokewidth"/>
     </group>
 

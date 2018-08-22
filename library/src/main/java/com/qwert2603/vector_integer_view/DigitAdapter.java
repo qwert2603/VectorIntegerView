@@ -30,7 +30,7 @@ class DigitAdapter extends RecyclerView.Adapter<DigitAdapter.DigitViewHolder> {
     @Override
     public DigitViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.viv_item_digit, parent, false);
-        ImageView imageView = view.findViewById(R.id.img);
+        ImageView imageView = view.findViewById(R.id.viv_img);
         imageView.setColorFilter(digitColor, PorterDuff.Mode.SRC_ATOP);
         return new DigitViewHolder(view);
     }
@@ -103,7 +103,7 @@ class DigitAdapter extends RecyclerView.Adapter<DigitAdapter.DigitViewHolder> {
 
         DigitViewHolder(View itemView) {
             super(itemView);
-            mImageView = itemView.findViewById(R.id.img);
+            mImageView = itemView.findViewById(R.id.viv_img);
         }
 
         void setDigit(int digit) {

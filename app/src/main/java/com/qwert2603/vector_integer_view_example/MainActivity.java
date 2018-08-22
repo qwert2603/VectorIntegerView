@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 vectorIntegerView.setInteger(
                         vectorIntegerView.getInteger().add(BigInteger.ONE),
-                        animateCheckBox.isChecked()
+                        /* animated = */ animateCheckBox.isChecked()
                 );
             }
         });
