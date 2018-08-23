@@ -8,6 +8,8 @@ Paths for vector drawables drawables are taken [here](https://github.com/alexjlo
 
 ## [Showcase video](https://www.youtube.com/watch?v=tTQlPH3ROMw)
 
+## [Demo APK](https://github.com/qwert2603/VectorIntegerView/blob/master/app/demo.apk)
+
 ![art](https://github.com/qwert2603/VectorIntegerView/blob/master/art/device-2018-08-22-124411.gif)
 
 ## Customizing
