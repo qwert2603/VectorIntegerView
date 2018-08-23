@@ -2,7 +2,7 @@
 
 [![](https://jitpack.io/v/qwert2603/VectorIntegerView.svg)](https://jitpack.io/#qwert2603/VectorIntegerView)
 
-`VectorIntegerView` (viv) is custom view to display integers on Android via great animations `minSdkVersion` **`21`**.
+`VectorIntegerView` (viv) is custom view to display integers on Android via great animations `minSdkVersion 21`.
 
 Paths for vector drawables drawables are taken [here](https://github.com/alexjlockwood/adp-delightful-details).
 
