@@ -52,7 +52,7 @@ vectorIntegerView.setInteger(
 ```
 Also there is overloaded function that allows set integer as ```long```:
 ```java
-vectorIntegerView.setInteger(1918, false);
+vectorIntegerView.setInteger(1918L, false);
 ```
 For example see [demo-app](https://github.com/qwert2603/VectorIntegerView/tree/master/app).
 
