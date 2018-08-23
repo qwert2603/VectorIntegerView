@@ -31,7 +31,7 @@ Paths for vector drawables drawables are taken [here](https://github.com/alexjlo
 
 ## In code
 ### XML
-```
+```xml
 <com.qwert2603.vector_integer_view.VectorIntegerView
     android:id="@+id/vectorIntegerView"
     android:layout_width="match_parent"
@@ -43,7 +43,7 @@ Paths for vector drawables drawables are taken [here](https://github.com/alexjlo
 
 ### Java / Kotlin
 Digit can be set also via code as `BigInteger`:
-```
+```java
 final VectorIntegerView vectorIntegerView = findViewById(R.id.vectorIntegerView);
 vectorIntegerView.setInteger(
         vectorIntegerView.getInteger().add(BigInteger.ONE),
@@ -51,7 +51,7 @@ vectorIntegerView.setInteger(
 );
 ```
 Also there is overloaded function that allows set integer as ```long```:
-```
+```java
 vectorIntegerView.setInteger(1918, false);
 ```
 For example see [demo-app](https://github.com/qwert2603/VectorIntegerView/tree/master/app).
