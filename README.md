@@ -51,6 +51,7 @@ vectorIntegerView.setInteger(
         vectorIntegerView.getInteger().add(BigInteger.ONE),
         /* animated = */ true
 );
+vectorIntegerView.setDigitColor(getColor(R.color.colorAccent));
 ```
 Also there is overloaded function that allows set integer as ```long```:
 ```java
