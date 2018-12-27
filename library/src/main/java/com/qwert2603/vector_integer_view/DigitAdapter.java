@@ -1,6 +1,7 @@
 package com.qwert2603.vector_integer_view;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.support.annotation.ColorInt;
 import android.support.annotation.IntRange;
@@ -17,14 +18,10 @@ import java.math.BigInteger;
 class DigitAdapter extends RecyclerView.Adapter<DigitAdapter.DigitViewHolder> {
 
     @ColorInt
-    private final int digitColor;
+    private int digitColor = Color.BLACK;
 
     @NonNull
     private BigInteger mInteger = BigInteger.ZERO;
-
-    DigitAdapter(int digitColor) {
-        this.digitColor = digitColor;
-    }
 
     @NonNull
     @SuppressLint("InflateParams")
@@ -39,6 +36,7 @@ class DigitAdapter extends RecyclerView.Adapter<DigitAdapter.DigitViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull DigitViewHolder holder, int position) {
         holder.setDigit(Utils.getDigitAt(mInteger, position));
+        holder.setDigitColor(digitColor);
     }
 
     @Override
@@ -83,6 +81,16 @@ class DigitAdapter extends RecyclerView.Adapter<DigitAdapter.DigitViewHolder> {
         }, true).dispatchUpdatesTo(this);
     }
 
+    @ColorInt
+    public int getDigitColor() {
+        return digitColor;
+    }
+
+    public void setDigitColor(@ColorInt int digitColor) {
+        this.digitColor = digitColor;
+        notifyItemRangeChanged(0, getItemCount());
+    }
+
     private static final int[] ATTRS = {
             R.attr.viv_state_zero,
             R.attr.viv_state_one,
@@ -100,7 +108,9 @@ class DigitAdapter extends RecyclerView.Adapter<DigitAdapter.DigitViewHolder> {
 
     static class DigitViewHolder extends RecyclerView.ViewHolder {
         ImageView mImageView;
-        @IntRange(from = 0, to = VectorIntegerView.MAX_DIGIT) int d;
+
+        @IntRange(from = 0, to = VectorIntegerView.MAX_DIGIT)
+        int d;
 
         DigitViewHolder(View itemView) {
             super(itemView);
@@ -121,6 +131,10 @@ class DigitAdapter extends RecyclerView.Adapter<DigitAdapter.DigitViewHolder> {
             }
 
             mImageView.setImageState(state, true);
+        }
+
+        void setDigitColor(@ColorInt int color) {
+            mImageView.setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
         }
     }
 

@@ -1,5 +1,6 @@
 package com.qwert2603.vector_integer_view_example;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -60,6 +61,17 @@ public class MainActivity extends AppCompatActivity {
                 vectorIntegerView_2.setInteger(number, true);
             }
         });
-
+        findViewById(R.id.red_Button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                vectorIntegerView.setDigitColor(Color.RED);
+            }
+        });
+        findViewById(R.id.green_Button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                vectorIntegerView.setDigitColor(Color.GREEN);
+            }
+        });
     }
 }

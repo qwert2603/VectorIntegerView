@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.RecyclerView;
@@ -39,7 +40,8 @@ public class VectorIntegerView extends FrameLayout {
         int digitColor = typedArray.getColor(R.styleable.VectorIntegerView_viv_digit_color, defaultDigitColor);
         typedArray.recycle();
 
-        mDigitAdapter = new DigitAdapter(digitColor);
+        mDigitAdapter = new DigitAdapter();
+        mDigitAdapter.setDigitColor(digitColor);
         recyclerView.setAdapter(mDigitAdapter);
         recyclerView.setItemAnimator(new DigitItemAnimator(getResources()));
         setInteger(digit, false);
@@ -59,6 +61,15 @@ public class VectorIntegerView extends FrameLayout {
     @NonNull
     public BigInteger getInteger() {
         return mDigitAdapter.getInteger();
+    }
+
+    @ColorInt
+    public int getDigitColor() {
+        return mDigitAdapter.getDigitColor();
+    }
+
+    public void setDigitColor(@ColorInt int digitColor) {
+        mDigitAdapter.setDigitColor(digitColor);
     }
 
     @Override

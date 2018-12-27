@@ -7,9 +7,9 @@
     tools:ignore="HardcodedText">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <com.qwert2603.vector_integer_view.VectorIntegerView
             android:id="@+id/vectorIntegerView"
@@ -60,12 +60,33 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/minus_Button"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:text="-" />
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/red_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="red"
+            android:textColor="#FF0000" />
+
+        <Button
+            android:id="@+id/green_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="green"
+            android:textColor="#23B512" />
+
+        <Button
+            android:id="@+id/minus_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
